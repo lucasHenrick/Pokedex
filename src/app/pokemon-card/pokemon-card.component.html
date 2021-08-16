@@ -1,0 +1,22 @@
+
+<mat-card class="pokemon-card mat-elevation-z8" *ngIf="pokemon">
+    <div class="pokemon-card__image">
+      <img
+        [src]="getImgPokemon(pokemon)"
+        alt="Pokemon Image">
+    </div>
+  
+    <div class="pokemon-card__number">
+      Nº {{ completeZero(pokemon.number) }}
+    </div>
+  
+    <div class="pokemon-card__name">
+      {{ UpperCase(pokemon.name) }}
+    </div>
+  
+    <div class="pokemon-card__types">
+      <div class="pokemon-card__type" *ngFor="let type of pokemon.types"  
+      [class]="'pokemon-card__type--'+type.toLowerCase()"
+      >{{ UpperCase(type) }}</div>
+    </div>
+</mat-card>

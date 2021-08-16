@@ -1,0 +1,14 @@
+<mat-toolbar>
+    <img src="../../assets/pokedex.png" alt="">
+    <h1>Pokedex</h1>
+    <span class="region"></span>
+        <input  (keyup)="filterPokemon($event)" placeholder="Pesquise seu Pokémon aqui ">
+    <span class="region"></span>
+    <button mat-button (click)="getGen('Kanto')">Kanto</button>
+    <button mat-button (click)="getGen('Johto')">Johto</button>
+    <button mat-button (click)="getGen('Hoenn')">Hoenn</button>
+    
+</mat-toolbar>
+<app-pokemon-list [pokemon]='pokemons'></app-pokemon-list>
+
+  
