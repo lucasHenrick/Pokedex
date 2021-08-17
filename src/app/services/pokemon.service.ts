@@ -15,10 +15,10 @@ export class PokemonService {
   constructor(private http : HttpClient)  {
   }
 
-  await findAll(url: string): Pokemon[] {
+  assync findAll(url: string): Pokemon[] {
     
     this.pokemons = [];
-    this.http.get<any>(url).pipe(
+    await this.http.get<any>(url).pipe(
       map(value => value.results),
       map((value: any) => {
         return from(value).pipe(
