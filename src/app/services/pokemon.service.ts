@@ -15,10 +15,10 @@ export class PokemonService {
   constructor(private http : HttpClient)  {
   }
 
-  assync findAll(url: string): Pokemon[] {
+   public findAll(url: string): Pokemon[] {
     
     this.pokemons = [];
-    await this.http.get<any>(url).pipe(
+    this.http.get<any>(url).pipe(
       map(value => value.results),
       map((value: any) => {
         return from(value).pipe(
@@ -33,7 +33,7 @@ export class PokemonService {
         name: result.forms[0].name,
         types: result.types.map(t => t.type.name),
 
-      }
+      }, console.log(this.pokemons)
       });
       return this.pokemons;
   }
