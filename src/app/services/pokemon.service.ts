@@ -15,7 +15,7 @@ export class PokemonService {
   constructor(private http : HttpClient)  {
   }
 
-   findAll(url: string): Pokemon[] {
+  await findAll(url: string): Pokemon[] {
     
     this.pokemons = [];
     this.http.get<any>(url).pipe(
